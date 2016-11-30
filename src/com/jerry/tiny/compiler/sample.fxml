@@ -1,0 +1,32 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<GridPane fx:controller="com.jerry.tiny.compiler.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="CENTER" spacing="10">
+        <Label style="-fx-font: NORMAL 20 Tahoma;" text="Code"/>
+        <TextArea fx:id="CodeArea"/>
+        <Button onAction="#ScanCode">Scan Me</Button>
+    </VBox>
+    <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <Label style="-fx-font: NORMAL 20 Tahoma;" text="Tokens"/>
+
+        <TableView fx:id="TokenTable" >
+            <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+
+            <columns>
+                <TableColumn text="Token" prefWidth="100" fx:id="TokenColumn">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="value"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Type" prefWidth="100">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="type"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+
+    </VBox>
+</GridPane>
